@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form id="myForm" action="#" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" data-error="nameError">
+        <span id="nameError" class="error">Input your name and surname</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" data-error="emailError">
+        <span id="emailError" class="error">Input email address</span>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+;
+  <script>
+    // TODO: validate form
+// - name must be at least 5 characters long
+// - email must be in the correct format
+// - display errors if the form is invalid
+
+const form = document.querySelector('#myForm');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let isValid = true
+
+  const inputs = form.querySelectorAll('input');
+  inputs.forEach(input => {
+    if (input.name === 'name') {
+      const error = form.querySelector('#nameError');
+      if (input.value.length < 5) {
+        isValid = false;
+        error.style.opacity = 1;
+        if (input.value.length === 0) {
+          error.textContent = 'Input your name and surname';
+        } else {
+          error.textContent = 'Name must be at least 5 characters long';
+        }
+    } else {
+        error.style.opacity = 0;
+      }
+    }
+    if (input.name ==='email') {
+        const error = form.querySelector('#emailError');
+        if (input.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/) === null) {
+            isValid = false;
+            error.style.opacity = 1;
+        } else {
+            error.style.opacity = 0;
+        }
+    if (isValid) {
+        event.target.submit();
+    }}
+  });
+});
+    
+    
+    
+  </script>
+</body>
+</html>

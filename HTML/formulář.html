@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulář</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        input:required{border-color:brown;
+        border-width:2rem ;
+        }
+        label {
+            font-weight:bold;
+        }
+        label [for="shoe_size"]
+        {color:red;}
+        button:hover, input[type="submit"]:hover{
+            color:blue;
+        }
+        button:hover, 
+        button[type="reset"]
+        {background-color:yellow ;}
+
+        button:nth-last-child(2){background-color: blueviolet;}
+    </style>
+
+</head>
+<body>
+    <form action="#"method=#>
+        <fieldset>
+            <legend>Osobní informace</legend>
+            <label for="name">Jméno</label>
+            <br>
+            
+            
+            <input type="text" id="name" name="user_name" required maxlength="10">
+
+            <br>
+        
+            <label>Pohlaví</label>
+
+            <br>
+            <label for="man">Muž</label><input type="radio" id="man" name="sex" value="Muž">
+            <label for="woman">Žena</label><input type="radio" id="woman" name="sex" value="Žena">
+            <br>
+
+
+            <label for="birth">Datum narození</label>
+            <br>
+            <input type="date" id="date_birth" name="birth">
+            <br>
+
+            <label for="password">Heslo</label>
+            <br>
+            <input type="password" id="password" name="password" required minlength="8">
+            <br>
+            <label for="profile_image">Profilová fotka</label>
+            <input type="file" name="profile_image" id="profile_image" accept="image/jpg,image/png">
+            <label for="shoe_size">Velikost boty</label>
+            <input type="number" name="shoe_size" id="shoe_size" max="55" min="20">
+        </fieldset>
+
+        <fieldset>
+            <legend>Kontaktní informace</legend>
+            <label for="country">Země</label>
+            <select name="country" id="country">
+                <optgroup label="Evropa">
+                    <option value="cz">ČR</option>
+                    <option value="sk">SK</option>
+                    <option value="hu">HU</option>
+                </optgroup>
+                <optgroup label="Asie">
+                    <option value="china">China</option>
+                    <option value="ohio">Ohio</option>
+                    <option value="nvmm">Nevim</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Záliby</legend>
+            <label><input type="checkbox" name="interest" value="fishing">Rybaření</label>
+            <label><input type="checkbox" name="interest" value="chess">Šachy</label>  
+            <label><input type="checkbox" name="interest" value="coocking">Vaření</label>
+            <label><input type="checkbox" name="interest" value="kids">Rodina</label>
+            <label><input type="checkbox" name="interest" value="lego">Lego</label>
+            <label><input type="checkbox" name="interest" value="sport">Sport</label>
+            <label><input type="checkbox" name="interest" value="gaming">Hry</label>
+            <br>
+
+            <label for="bio">O mě</label> </label>
+            <textarea id="bio" name="bio" rows="3" cols="30"></textarea>
+        </fieldset>
+        <input type="hidden" value="validation_token" name="validation_token">
+        <input type="submit" value="Odeslat">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+        <button type="">Nic</button>
+        <style>
+            body  {
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+padding: 20px;
+height: 20px;
+background: rgb(226, 12, 22);
+
+}
+
+
+.container {
+    
+    border: 2px solid #365;}
+        </style>
+    </form>
+</body>
+</html>
