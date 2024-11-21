@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block stylesheets %}
+    <style>
+
+     @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap');
+
+nav {
+        background-color: rgb(235, 235, 235);
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Pacifico, sans-serif;
+}
+nav ul {
+        margin: 0 auto;
+        padding: 0; 
+        list-style: none;
+        display: flex;
+        align-items: center;
+}
+nav li {
+        list-style: none;
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+}
+
+html, body {
+      background-color: rgb(150, 350, 550);
+      font-family: 'Sour Gummy', sans-serif;
+  }
+
+body {
+      margin: 0;
+      background-color: rgb(255, 255, 255);
+  }
+
+a {
+        text-align: center;
+        align-items: center;
+    }
+    
+div {
+        padding: 10px;
+        text-align: center;
+    }
+header {
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+        text-align: center;
+    }
+
+    
+
+
+    
+    </style>
+{% endblock %}
+
+{% block body %}
+     
+<header>
+    <nav>
+        <ul>
+            <li><a href="#"><strong>Home</strong></a></li>
+            <li><a href="#"><strong>Men</strong></a></li>
+            <li><a href="#"><strong>Women</strong></a></li>
+        </ul>
+        <div class="cart-right">
+    <a href="{{ path('app_cart') }}">
+        <img src="{{ asset('images/onlineshopping.png') }}" alt="Cart">
+    </a>
+        </div>
+</header>
+
+     
+  
+<div>
+    <h1>Your cart</h1>
+    {% if cart is empty %}
+        <p>Cart is empty.</p>
+    {% else %}
+        <ol>
+            {% for id, product in cart %}
+                <li>
+                    Produkt ID: {{ id }} - Amount: {{ product.quantity }}
+                    <a href="{{ path('app_cart_remove', { id: id }) }}">remove</a>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</div>
+    <a href="{{ path('app_eshop') }}">Back to shop</a>
+{% endblock %}

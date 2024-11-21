@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Seznam produktů{% endblock %}
+
+{% block body %}
+    <h1>Seznam produktů</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product.name }} - {{ product.price }} Kč
+                <a href="{{ path('app_add_to_cart', { 'id': product.id }) }}">Přidat do košíku</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
